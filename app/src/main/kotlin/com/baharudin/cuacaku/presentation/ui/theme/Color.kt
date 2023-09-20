@@ -1,4 +1,4 @@
-package com.baharudin.cuacaku.ui.theme
+package com.baharudin.cuacaku.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

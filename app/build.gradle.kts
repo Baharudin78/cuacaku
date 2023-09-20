@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.bundles.hilt)
     implementation(libs.bundles.retrofit.bundle)
     implementation(libs.kotlin.coroutines)
+    implementation(libs.navigation)
 
     implementation(libs.coil)
     implementation(libs.bundles.lyfecycle)
