@@ -5,6 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.baharudin.cuacaku.core.Screen
+import com.baharudin.cuacaku.core.dashboardScreen
+import com.baharudin.cuacaku.core.forecastScreen
 
 @Composable
 fun HomeNavGraph(
@@ -14,9 +16,10 @@ fun HomeNavGraph(
 ){
     NavHost(
         navController = navHostController,
-        startDestination = Screen.Home.route,
+        startDestination = Screen.Dashboard.route,
         modifier = modifier
     ) {
-        // TODO : Adding screen here for bottom nav screen
+        dashboardScreen()
+        forecastScreen()
     }
 }

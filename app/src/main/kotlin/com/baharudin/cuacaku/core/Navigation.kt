@@ -7,26 +7,49 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.baharudin.cuacaku.core.ext.navigateTo
+import com.baharudin.cuacaku.core.navigation.HomeNavGraph
+import com.baharudin.cuacaku.presentation.dashboard.DashboardScreen
+import com.baharudin.cuacaku.presentation.forecast.ForecastScreen
+import com.baharudin.cuacaku.presentation.home.HomeScreen
 
 fun NavGraphBuilder.homeNavGraph(onNavigateTpRoot: (Screen) -> Unit) {
     composable(
         route = Screen.Home.route
-    ){
+    ) {
         val navController = rememberNavController()
         val navBackStackEntry by navController.currentBackStackEntryAsState()
 
         val bottomBar: @Composable () -> Unit = {
             HomeBottonNavigation(
                 screen = listOf(
-
+                    Screen.Dashboard,
+                    Screen.Forecast
                 ),
                 onNavigationTo = navController::navigateTo,
                 currentDestination = navBackStackEntry?.destination
             )
         }
 
-        val nestedNavGraph : @Composable () -> Unit = {
-
+        val nestedNavGraph: @Composable () -> Unit = {
+            HomeNavGraph(navHostController = navController, onNavigateToRoot = onNavigateTpRoot)
         }
+
+        HomeScreen(nestedNavGraph = nestedNavGraph, bottomBar = bottomBar)
+    }
+}
+
+fun NavGraphBuilder.dashboardScreen() {
+    composable(
+        route = Screen.Dashboard.route
+    ){
+        DashboardScreen()
+    }
+}
+
+fun NavGraphBuilder.forecastScreen() {
+    composable(
+        route = Screen.Forecast.route
+    ){
+        ForecastScreen()
     }
 }
