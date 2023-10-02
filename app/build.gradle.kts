@@ -69,6 +69,8 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.bundles.lyfecycle)
     implementation(libs.lottie)
+    debugImplementation(libs.chucker.debug)
+    releaseImplementation(libs.chucker.release)
 
 //    implementation(libs.room.ktx)
 //    ksp(libs.room.compiler)

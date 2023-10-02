@@ -2,6 +2,7 @@ package com.baharudin.cuacaku.core
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -9,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.baharudin.cuacaku.core.ext.navigateTo
 import com.baharudin.cuacaku.core.navigation.HomeNavGraph
 import com.baharudin.cuacaku.presentation.dashboard.DashboardScreen
+import com.baharudin.cuacaku.presentation.dashboard.DashboardViewModel
 import com.baharudin.cuacaku.presentation.forecast.ForecastScreen
 import com.baharudin.cuacaku.presentation.home.HomeScreen
 
@@ -42,7 +44,10 @@ fun NavGraphBuilder.dashboardScreen() {
     composable(
         route = Screen.Dashboard.route
     ){
-        DashboardScreen()
+        val dashboardViewModel : DashboardViewModel = viewModel()
+        DashboardScreen(
+            dashboardViewModel.quakeState
+        )
     }
 }
 

@@ -38,7 +38,7 @@ espresso-core = "3.5.1"
 # 3rd party libs
 lottie = "6.1.0"
 hilt-version = "2.44"
-chucker-version = "3.5.2"
+chucker-version = "4.0.0"
 ksp-version = "1.8.20-1.0.11"
 
 
@@ -51,6 +51,8 @@ lyfecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-ru
 navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
+chucker-debug = { module = "com.github.chuckerteam.chucker:library", version.ref ="chucker-version"}
+chucker-release = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref ="chucker-version"}
 
 # Compose
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -99,7 +101,6 @@ compose = [
     "compose-ui-util"
     # "compose-constraintlayout"
 ]
-
 compose-debug = [
     "compose-ui-tooling",
     "compose-ui-manifest"
